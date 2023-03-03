@@ -4,6 +4,9 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import userRoutes from './Routes/users.js'
+import * as dotenv from 'dotenv';
+dotenv.config()
+console.log(process.env)
 
 
 const app = express();
@@ -16,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors());
 
-const CONN_URL = 'mongodb+srv://kartikChinda:iSiteMinorProject@cluster0.zxwsqrn.mongodb.net/?retryWrites=true&w=majority'
+const CONN_URL = `mongodb+srv://kartikChinda:${process.env.PASS}@cluster0.zxwsqrn.mongodb.net/?retryWrites=true&w=majority`;
 
 const PORT = process.env.PORT || 5000
 
