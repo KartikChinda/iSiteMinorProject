@@ -6,7 +6,7 @@ import cors from 'cors';
 import userRoutes from './Routes/users.js'
 import * as dotenv from 'dotenv';
 dotenv.config()
-console.log(process.env)
+
 
 
 const app = express();
