@@ -5,19 +5,20 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import userRoutes from './Routes/users.js'
 import * as dotenv from 'dotenv';
+// basically being used to configure environmental variables and not store sensitive info like passwords in code. 
 dotenv.config()
 
 
 
 const app = express();
 
-app.use('/users', userRoutes);
-
 app.use(bodyParser.json({ extended: true }));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors());
+
+app.use('/users', userRoutes);
 
 const CONN_URL = `mongodb+srv://kartikChinda:${process.env.PASS}@cluster0.zxwsqrn.mongodb.net/?retryWrites=true&w=majority`;
 
